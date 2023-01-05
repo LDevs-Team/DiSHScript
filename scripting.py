@@ -59,11 +59,5 @@ def run(symbols:list[str], modules:dict[str, callable]) -> None:
                 variables[a[2]] = modules[a[1]]()
             case "DEL":
                 del variables[a[1]]
-            
-f = open("test.ds", "r")
-content = f.read()
-# print(parse(content))
-run(parse(content), {"screenshot": lambda : "L"})
-f.close()
 
 # while True:    pass
