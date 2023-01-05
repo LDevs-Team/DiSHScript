@@ -17,13 +17,23 @@ def parse(f:str) -> list[tuple[str]]:
         symbols.append(line_symbols)
     return symbols
 
-def run(symbols:list[str], modules:dict[str, callable]) -> None:
-    variables = {} # declare variables context
-    loops = {} # declare loops context
+def run(symbols:list[str], modules:dict[str, callable], variables_override:dict={}) -> None:
+    variables = variables_override or {} # declare variables context
+    in_loop = False # declare loops context
+    loop_instructions = []
+    loop_times = 0
+    loop_varname = ""
     for a in symbols:
         if len(a) < 1:
             continue
         instruction = a[0]
+        if in_loop == True:
+            print("lul")
+            if instruction == "END":
+                pass
+            else:
+                loop_instructions.append(a)
+                continue
         match instruction:
             case "LOG":
                 if a[1] in variables.keys():
@@ -44,9 +54,17 @@ def run(symbols:list[str], modules:dict[str, callable]) -> None:
                     variables[a[1]] = int(variables[a[1]])
                     variables[a[1]] += int(a[2])
             case "REPEAT":
-                raise NotImplementedError("If you look closely, you can see that I couldn't bother to implement this :)")
+                in_loop = True
+                loop_varname = a[2]
+                loop_times = int(a[1])
+                # raise NotImplementedError("If you look closely, you can see that I couldn't bother to implement this :)")
             case "END":
-                raise NotImplementedError("If you look closely, you can see that I couldn't bother to implement this :)")
+                in_loop = False
+                for j in range(loop_times):
+                    variables[loop_varname] = j+1
+                    run(loop_instructions, modules, variables_override=variables)
+                loop_instructions = []
+                # raise NotImplementedError("If you look closely, you can see that I couldn't bother to implement this :)")
             case "EXEC":
                 os.system(a[1])
             case "EXET":
