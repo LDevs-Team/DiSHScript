@@ -9,7 +9,8 @@ git clone https://github.com/LDevs-Team/DiSHScript/
 cd DiSHScript```
 4. Create a file (the extension is .ds)
 5. Type some code lol
-6. Execute it with ```python3 __init__.py (filename)```
+6. Execute it with ```python3 __init__.py (filename)
+```
 
 ## Supported instructions
 LOG: print something. Usage: LOG "text" or LOG variablename
