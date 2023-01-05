@@ -5,7 +5,6 @@ def parse(f:str) -> list[tuple[str]]:
     symbols = []
     for a in lines:
         a = re.sub(r'#(\s|\S)+', "", a)
-        print(a)
         found = re.findall(r'("([^"]*)")|(\w+)', a)
         sanitized = []
         line_symbols = []
@@ -30,7 +29,7 @@ def run(symbols:list[str], modules:dict[str, callable]) -> None:
                 if a[1] in variables.keys():
                     print(variables[a[1]])
                 else:
-                    print(a[1:])
+                    print(" ".join(a[1:]))
             case "DECLARE":
                 if a[1] == "int":
                     variables[a[2]] = int(a[3])
