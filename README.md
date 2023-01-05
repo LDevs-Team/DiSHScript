@@ -14,13 +14,23 @@ cd DiSHScript```
 
 ## Supported instructions
 LOG: print something. Usage: LOG "text" or LOG variablename
+
 DECLARE: declare a variable. Usage: DECLARE [variablename] [content]
+
 SET: set a variable? Don't use it.
+
 INCREMENT: increment a variable. Usage: INCREMENT [variablename] [increment]
+
 REPEAT: not implemented
+
 END: not implemented
+
 EXEC: executes a command in a shell. Usage: EXEC [command]
+
 EXET: executes a command in a shell and stores the results in a variable. Usage: EXET [command] [variablename]
+
 RUN: runs a submodule (WIP). Usage: RUN [module]
+
 RUNSET: runs a submodule and stores the result in a variable (WIP). Usage: RUNSET [module] [variablename]
+
 DEL: removes a variable. Usage: del [variablename]
