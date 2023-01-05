@@ -1,0 +1,3 @@
+REPEAT 5 x
+LOG x
+END

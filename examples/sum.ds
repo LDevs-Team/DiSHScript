@@ -1,0 +1,5 @@
+DECLARE int x 1
+INCREMENT x 1
+LOG x
+INCREMENT x "-2"
+LOG x

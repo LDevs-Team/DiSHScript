@@ -1,0 +1,2 @@
+DECLARE str x "Hi"
+LOG x 

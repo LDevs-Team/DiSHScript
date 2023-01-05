@@ -1,4 +1,3 @@
 test.ds
 .vscode
-*.ds
 **/*.pyc
