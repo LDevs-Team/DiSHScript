@@ -1,1 +1,4 @@
 EXEC dir
+
+EXET dir x
+LOG x

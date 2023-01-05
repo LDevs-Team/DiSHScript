@@ -47,6 +47,8 @@ def run(symbols:list[str], modules:dict[str, callable], variables_override:dict=
                     variables[a[2]] = a[3]
             case "SET":
                 variables[a[1]] = a[2]
+            case "DUMPVARS":
+                print(variables)
             case "INCREMENT":
                 if isinstance(a, int):
                     variables[a[1]] += int(a[2])
@@ -69,7 +71,7 @@ def run(symbols:list[str], modules:dict[str, callable], variables_override:dict=
                 os.system(a[1])
             case "EXET":
                 sp = subprocess.run(a[1], shell=True, capture_output=True)
-                variables[a[1]] = sp.stdout
+                variables[a[2]] = sp.stdout
             case "RUN":
                 modules[a[1]]()
             case "RUNSET":
