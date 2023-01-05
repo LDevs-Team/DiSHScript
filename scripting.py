@@ -66,4 +66,4 @@ content = f.read()
 run(parse(content), {"screenshot": lambda : "L"})
 f.close()
 
-while True:    pass
+# while True:    pass
