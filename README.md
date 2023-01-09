@@ -1,5 +1,8 @@
 # DiSHScript
-The unified DiSH scripting language
+> **Warning**  
+> This language is being ported to general use in favour of pure python for DiSH
+
+## The unified DiSH scripting language
 ## Usage
 1. Install python
 2. Install git
